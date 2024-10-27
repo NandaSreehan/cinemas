@@ -1,0 +1,36 @@
+
+<title>MOVIE INFORMATION</title>
+<style>
+    th,table,td,tr{
+        border:1px solid red
+    }
+</style>
+<h1>Movies and Their rating</h1>
+<table border="2">
+    <thead>
+        <th>Movie Name</th>
+        <th>Released Year</th>
+        <th>Director</th>
+        <th>imdb rating</th>
+        <th>writer</th>
+    </thead>
+    <tbody>
+        {% if movies %}
+            {% for i in movies %}
+            {% if i.name and i.imdb and i.writer and i.year and i.director %}
+                <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.imdb }}</td>
+                <td>{{ i.writer }}</td>
+                <td>{{ i.year }}</td>
+                <td>{{ i.director }}</td>
+                </tr>
+            {% else %}
+                <td colspan="6"> imformation not valid</td>
+            {% endif %}
+            {% endfor %}
+        {%else%}
+            <p>table create avvaledhu chuusuko</p>
+        {% endif %}    
+    </tbody>
+</table>
